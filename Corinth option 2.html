@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corinth 10 Homes Limited</title>
+    <!-- Use the Inter font for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom CSS to handle dropdown visibility with JavaScript */
+        .dropdown-active > .dropdown-menu {
+            display: block !important;
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+            transform: translateY(-10px);
+        }
+
+        /* Class for hiding page sections */
+        .page-section {
+            display: none;
+        }
+
+        /* Ensure nested menus also work on hover */
+        .group:hover .group-hover\:block {
+            display: block !important;
+        }
+
+        .commercial-property {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+            <a href="#home" class="text-2xl font-bold rounded-lg hover:text-indigo-400 transition-colors mb-4 md:mb-0" data-page-link>Corinth 10 Homes Limited</a>
+            <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+                <!-- Home Dropdown -->
+                <li class="relative dropdown group">
+                    <button class="nav-link font-semibold hover:text-indigo-400 transition-colors focus:outline-none">Home ▼</button>
+                    <ul class="dropdown-menu absolute bg-gray-700 mt-2 rounded-lg shadow-xl py-2 px-4 transition-all duration-300 transform md:w-48 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 group-hover:block">
+                        <li><a href="#home" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Home</a></li>
+                        <li><a href="#about" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>About Us</a></li>
+                    </ul>
+                </li>
+                <!-- Properties Dropdown with Nested Menus -->
+                <li class="relative dropdown group">
+                    <button class="nav-link font-semibold hover:text-indigo-400 transition-colors focus:outline-none">Properties ▼</button>
+                    <ul class="dropdown-menu absolute bg-gray-700 mt-2 rounded-lg shadow-xl py-2 px-4 transition-all duration-300 transform md:w-48 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 group-hover:block">
+                        <!-- Residential Main Link and Nested Dropdown -->
+                        <li class="relative dropdown group">
+                            <a href="#residential-properties" class="w-full text-left block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Residential ▶</a>
+                            <ul class="dropdown-menu absolute left-full top-0 bg-gray-700 rounded-lg shadow-xl py-2 px-4 ml-2 transition-all duration-300 transform hidden md:block group-hover:block">
+                                <li><a href="#residential-rentals" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Rentals</a></li>
+                                <li><a href="#residential-homes" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Homes</a></li>
+                                <li><a href="#residential-land" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Land</a></li>
+                            </ul>
+                        </li>
+                        <!-- Commercial Main Link and Nested Dropdown -->
+                        <li class="relative dropdown group">
+                            <a href="#commercial-properties" class="w-full text-left block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Commercial ▶</a>
+                            <ul class="dropdown-menu absolute left-full top-0 bg-gray-700 rounded-lg shadow-xl py-2 px-4 ml-2 transition-all duration-300 transform hidden md:block group-hover:block">
+                                <li><a href="#commercial-buildings" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Buildings</a></li>
+                                <li><a href="#commercial-land" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Land</a></li>
+                                <li><a href="#commercial-store" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Store</a></li>
+                            </ul>
+                        </li>
+                        <!-- New Development Link -->
+                        <li><a href="#new-development" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>New Development</a></li>
+                    </ul>
+                </li>
+                <!-- Services Dropdown -->
+                <li class="relative dropdown group">
+                    <button class="nav-link font-semibold hover:text-indigo-400 transition-colors focus:outline-none">Services ▼</button>
+                    <ul class="dropdown-menu absolute bg-gray-700 mt-2 rounded-lg shadow-xl py-2 px-4 transition-all duration-300 transform md:w-48 left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 group-hover:block">
+                        <li><a href="#get-pre-approved" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Get Pre-Approved</a></li>
+                        <li><a href="#mortgage-calculator" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Mortgage Calculator</a></li>
+                        <!-- New Online Payment Link -->
+                        <li><a href="#online-payment" class="block px-4 py-2 hover:bg-gray-600 rounded-md transition-colors" data-page-link>Online Payment</a></li>
+                    </ul>
+                </li>
+                <li><a href="#agents" class="nav-link font-semibold hover:text-indigo-400 transition-colors" data-page-link>Agents</a></li>
+                <li><a href="#newsletter" class="nav-link font-semibold hover:text-indigo-400 transition-colors" data-page-link>Newsletter</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Sections -->
+    <main class="py-12">
+        <!-- Home Section -->
+        <section id="home" class="page-section container mx-auto px-4">
+            <div class="text-center">
+                <img src="https://placehold.co/1200x500/E5E7EB/6B7280?text=Your+Dream+Home+Awaits" alt="Hero Image" class="mx-auto rounded-xl shadow-lg mb-8 md:mb-12">
+                <button id="view-all-properties-btn" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition-colors text-lg shadow-md">View All Properties</button>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-6 text-gray-700">About Us</h2>
+            <p class="text-center text-gray-600 mb-12">Corinth 10 Homes Limited: Your trusted partner in property since 2018.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center transition-transform hover:scale-105">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=Owner+1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-2">Owner One</h3>
+                    <p class="text-gray-600">Experienced real estate professional dedicated to helping clients find their dream property.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center transition-transform hover:scale-105">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=Owner+2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-2">Owner Two</h3>
+                    <p class="text-gray-600">Committed to providing excellent service and expert advice for property buyers and investors.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center transition-transform hover:scale-105 sm:col-span-2 lg:col-span-1">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=Our+Team" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-2">Our Team</h3>
+                    <p class="text-gray-600">A collective of passionate experts ready to serve all your real estate needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Properties Listings Page -->
+        <section id="all-properties" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-10 text-gray-700">All Property Listings</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Residential Properties Section -->
+                <div class="property-card residential-property bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400/5d5d5d/white?text=Modern+Family+House" alt="Residential Home" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-bold text-gray-900">Modern Family House</h2>
+                        <p class="text-indigo-600 font-semibold my-2">$750,000</p>
+                        <p class="text-gray-500 text-sm">3 beds, 2 baths, 2,100 sq ft</p>
+                        <p class="text-gray-700 mt-4">A beautiful, spacious home with a large backyard, perfect for a growing family. Located in a quiet neighborhood.</p>
+                    </div>
+                </div>
+
+                <div class="property-card residential-property bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400/5d5d5d/white?text=Urban+Apartment" alt="Urban Apartment" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-bold text-gray-900">Downtown Studio Apartment</h2>
+                        <p class="text-indigo-600 font-semibold my-2">$320,000</p>
+                        <p class="text-gray-500 text-sm">1 bed, 1 bath, 850 sq ft</p>
+                        <p class="text-gray-700 mt-4">Stylish studio in the heart of the city with stunning skyline views. Steps away from dining and entertainment.</p>
+                    </div>
+                </div>
+
+                <!-- Commercial Properties Section -->
+                <div class="property-card commercial-property bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400/5d5d5d/white?text=Office+Building" alt="Office Building" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-bold text-gray-900">Prime Office Space</h2>
+                        <p class="text-indigo-600 font-semibold my-2">$1,200,000</p>
+                        <p class="text-gray-500 text-sm">5,000 sq ft, open floor plan</p>
+                        <p class="text-gray-700 mt-4">A modern, professional office building in a high-traffic business district. Fully equipped with modern amenities.</p>
+                    </div>
+                </div>
+
+                <div class="property-card commercial-property bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400/5d5d5d/white?text=Retail+Space" alt="Retail Space" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-bold text-gray-900">Street-Level Retail Store</h2>
+                        <p class="text-indigo-600 font-semibold my-2">$950,000</p>
+                        <p class="text-gray-500 text-sm">2,500 sq ft, corner unit</p>
+                        <p class="text-gray-700 mt-4">Excellent opportunity for a new business. Located on a busy street with great foot traffic and visibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Residential Properties Overview Page -->
+        <section id="residential-properties" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-10 text-gray-700">Residential Properties</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="#residential-rentals" class="bg-white shadow-lg rounded-xl overflow-hidden p-6 text-center transition-transform hover:scale-105" data-page-link>
+                    <img src="https://placehold.co/600x400/818CF8/E0E7FF?text=Rentals" alt="Residential Rentals" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-xl mb-1 text-gray-800">Rentals</h3>
+                    <p class="text-gray-600">Find the perfect place to lease.</p>
+                </a>
+                <a href="#residential-homes" class="bg-white shadow-lg rounded-xl overflow-hidden p-6 text-center transition-transform hover:scale-105" data-page-link>
+                    <img src="https://placehold.co/600x400/A78BFA/EDE9FE?text=Homes" alt="Homes for Sale" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-xl mb-1 text-gray-800">Homes</h3>
+                    <p class="text-gray-600">Explore houses for sale.</p>
+                </a>
+                <a href="#residential-land" class="bg-white shadow-lg rounded-xl overflow-hidden p-6 text-center transition-transform hover:scale-105" data-page-link>
+                    <img src="https://placehold.co/600x400/C084FC/F3E8FF?text=Land" alt="Residential Land" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-xl mb-1 text-gray-800">Land</h3>
+                    <p class="text-gray-600">Discover land for building your dream home.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Commercial Properties Overview Page -->
+        <section id="commercial-properties" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-10 text-gray-700">Commercial Properties</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="#commercial-buildings" class="bg-white shadow-lg rounded-xl overflow-hidden p-6 text-center transition-transform hover:scale-105" data-page-link>
+                    <img src="https://placehold.co/600x400/1D4ED8/DBEAFE?text=Buildings" alt="Commercial Buildings" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-xl mb-1 text-gray-800">Buildings</h3>
+                    <p class="text-gray-600">Find the perfect commercial space.</p>
+                </a>
+                <a href="#commercial-land" class="bg-white shadow-lg rounded-xl overflow-hidden p-6 text-center transition-transform hover:scale-105" data-page-link>
+                    <img src="https://placehold.co/600x400/1D4ED8/DBEAFE?text=Land" alt="Commercial Land" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-xl mb-1 text-gray-800">Land</h3>
+                    <p class="text-gray-600">Secure land for your business.</p>
+                </a>
+                <a href="#commercial-store" class="bg-white shadow-lg rounded-xl overflow-hidden p-6 text-center transition-transform hover:scale-105" data-page-link>
+                    <img src="https://placehold.co/600x400/1D4ED8/DBEAFE?text=Store" alt="Commercial Stores" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-xl mb-1 text-gray-800">Stores</h3>
+                    <p class="text-gray-600">Discover retail properties for sale or rent.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Residential Rentals Section -->
+        <section id="residential-rentals" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-700">Residential Rentals</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Rental Property 1 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/818CF8/E0E7FF?text=Apartment" alt="Apartment for Rent" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Modern Downtown Apartment</h3>
+                        <p class="text-gray-600 mb-2">Port of Spain, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$1,500/month</p>
+                        <div class="flex justify-between text-gray-500">
+                            <span>Beds: 2</span>
+                            <span>Baths: 2</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rental Property 2 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/A78BFA/EDE9FE?text=Townhouse" alt="Townhouse for Rent" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Spacious Townhouse</h3>
+                        <p class="text-gray-600 mb-2">San Fernando, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$2,000/month</p>
+                        <div class="flex justify-between text-gray-500">
+                            <span>Beds: 3</span>
+                            <span>Baths: 2.5</span>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Rental Property 3 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/C084FC/F3E8FF?text=Villa" alt="Villa for Rent" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Beachfront Villa</h3>
+                        <p class="text-gray-600 mb-2">Tobago</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$4,500/month</p>
+                        <div class="flex justify-between text-gray-500">
+                            <span>Beds: 4</span>
+                            <span>Baths: 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Residential Homes Section -->
+        <section id="residential-homes" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-700">Residential Homes</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Home 1 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/818CF8/E0E7FF?text=Family+Home" alt="Family Home" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Suburban Family Home</h3>
+                        <p class="text-gray-600 mb-2">Arima, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$350,000</p>
+                        <div class="flex justify-between text-gray-500">
+                            <span>Beds: 4</span>
+                            <span>Baths: 3</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Home 2 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/A78BFA/EDE9FE?text=Modern+House" alt="Modern House" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Architectural Gem</h3>
+                        <p class="text-gray-600 mb-2">St. Augustine, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$550,000</p>
+                        <div class="flex justify-between text-gray-500">
+                            <span>Beds: 5</span>
+                            <span>Baths: 4</span>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Home 3 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/C084FC/F3E8FF?text=Country+Cottage" alt="Country Cottage" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Charming Country Cottage</h3>
+                        <p class="text-gray-600 mb-2">Tobago</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$280,000</p>
+                        <div class="flex justify-between text-gray-500">
+                            <span>Beds: 3</span>
+                            <span>Baths: 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Residential Land Section -->
+        <section id="residential-land" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-700">Residential Land</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Land 1 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/4F46E5/E0E7FF?text=Plot+of+Land" alt="Plot of Land" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Prime Land in Gated Community</h3>
+                        <p class="text-gray-600 mb-2">Chaguaramas, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$100,000</p>
+                        <p class="text-gray-500">Size: 15,000 sq ft</p>
+                    </div>
+                </div>
+                 <!-- Land 2 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/4F46E5/E0E7FF?text=Land" alt="Land" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Land with Sea View</h3>
+                        <p class="text-gray-600 mb-2">Tobago</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$120,000</p>
+                        <p class="text-gray-500">Size: 20,000 sq ft</p>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commercial Buildings Section -->
+        <section id="commercial-buildings" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-700">Commercial Buildings</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Building 1 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/1D4ED8/DBEAFE?text=Office+Building" alt="Office Building" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Prime Office Building</h3>
+                        <p class="text-gray-600 mb-2">Port of Spain, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$1,200,000</p>
+                        <p class="text-gray-500">Size: 10,000 sq ft</p>
+                    </div>
+                </div>
+                <!-- Building 2 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/1D4ED8/DBEAFE?text=Retail+Space" alt="Retail Space" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Large Retail Plaza</h3>
+                        <p class="text-gray-600 mb-2">San Fernando, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$850,000</p>
+                        <p class="text-gray-500">Size: 8,000 sq ft</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commercial Land Section -->
+        <section id="commercial-land" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-700">Commercial Land</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Commercial Land 1 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/1D4ED8/DBEAFE?text=Commercial+Land" alt="Commercial Land" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Industrial Lot</h3>
+                        <p class="text-gray-600 mb-2">Pt. Lisas, Trinidad</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$200,000</p>
+                        <p class="text-gray-500">Size: 5 acres</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commercial Store Section -->
+        <section id="commercial-store" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-700">Commercial Stores</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Store 1 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/1D4ED8/DBEAFE?text=Retail+Store" alt="Retail Store" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Retail Storefront</h3>
+                        <p class="text-gray-600 mb-2">Ariapita Avenue, Port of Spain</p>
+                        <p class="text-indigo-600 font-bold text-lg mb-4">$500,000</p>
+                        <p class="text-gray-500">Size: 1,200 sq ft</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Development Section -->
+        <section id="new-development" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-10 text-gray-700">New Development</h2>
+            <div class="bg-white shadow-lg rounded-xl p-8 max-w-2xl mx-auto text-center">
+                <img src="https://placehold.co/800x400/3B82F6/DBEAFE?text=The+Azure+Residences" alt="New Development" class="rounded-lg mb-6">
+                <h3 class="font-bold text-2xl mb-2 text-gray-800">The Azure Residences</h3>
+                <p class="text-gray-600 mb-4">A new luxury housing development coming soon to a prime location in Port of Spain, featuring modern amenities and stunning ocean views.</p>
+                <button class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition-colors shadow-md">Learn More</button>
+            </div>
+        </section>
+        
+        <!-- Online Payment Section -->
+        <section id="online-payment" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-6 text-gray-700">Make an Online Payment</h2>
+            <p class="text-center text-gray-600 mb-8">Securely make a payment for our services or properties below.</p>
+            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <form id="payment-form" class="space-y-6">
+                    <div>
+                        <label for="payer-name" class="block text-sm font-medium text-gray-700">Your Full Name</label>
+                        <input type="text" id="payer-name" name="payer-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="payer-email" class="block text-sm font-medium text-gray-700">Your Email Address</label>
+                        <input type="email" id="payer-email" name="payer-email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="payment-amount" class="block text-sm font-medium text-gray-700">Payment Amount ($)</label>
+                        <input type="number" id="payment-amount" name="payment-amount" step="0.01" min="0" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="payment-description" class="block text-sm font-medium text-gray-700">Payment Description</label>
+                        <textarea id="payment-description" name="payment-description" rows="3" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    </div>
+                    
+                    <!-- Credit Card Details Section -->
+                    <div class="space-y-4 pt-4 border-t border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-800">Credit Card Information</h3>
+                        <div>
+                            <label for="card-name" class="block text-sm font-medium text-gray-700">Name on Card</label>
+                            <input type="text" id="card-name" name="card-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="card-number" class="block text-sm font-medium text-gray-700">Card Number</label>
+                            <input type="text" id="card-number" name="card-number" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="•••• •••• •••• ••••">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="card-expiry" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+                                <input type="text" id="card-expiry" name="card-expiry" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="MM/YY">
+                            </div>
+                            <div>
+                                <label for="card-cvc" class="block text-sm font-medium text-gray-700">CVC</label>
+                                <input type="text" id="card-cvc" name="card-cvc" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="•••">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-full hover:bg-indigo-700 transition-colors duration-300 shadow-md">Pay Now</button>
+                </form>
+                <div id="payment-message" class="mt-4 text-center text-sm font-medium text-gray-700 hidden"></div>
+            </div>
+        </section>
+
+        <!-- Agents Section -->
+        <section id="agents" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-700">Our Agents</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                <!-- Agent 1 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center cursor-pointer transition-transform hover:scale-105" data-agent="Agent One" data-specialty="Residential Specialist">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=A1" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-1">Agent One</h3>
+                    <p class="text-indigo-600">Residential Specialist</p>
+                </div>
+                <!-- Agent 2 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center cursor-pointer transition-transform hover:scale-105" data-agent="Agent Two" data-specialty="Commercial Specialist">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=A2" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-1">Agent Two</h3>
+                    <p class="text-indigo-600">Commercial Specialist</p>
+                </div>
+                <!-- Agent 3 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center cursor-pointer transition-transform hover:scale-105" data-agent="Agent Three" data-specialty="Land Specialist">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=A3" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-1">Agent Three</h3>
+                    <p class="text-indigo-600">Land Specialist</p>
+                </div>
+                <!-- Agent 4 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center cursor-pointer transition-transform hover:scale-105" data-agent="Agent Four" data-specialty="Rental Specialist">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=A4" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-1">Agent Four</h3>
+                    <p class="text-indigo-600">Rental Specialist</p>
+                </div>
+                <!-- Agent 5 -->
+                <div class="bg-white shadow-lg rounded-xl p-6 text-center cursor-pointer transition-transform hover:scale-105" data-agent="Agent Five" data-specialty="All Property Specialist">
+                    <img src="https://placehold.co/150x150/4F46E5/ffffff?text=A5" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-indigo-400">
+                    <h3 class="font-bold text-xl mb-1">Agent Five</h3>
+                    <p class="text-indigo-600">All Property Specialist</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Pre-Approved Section -->
+        <section id="get-pre-approved" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-6 text-gray-700">Get Pre-Approved</h2>
+            <form class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <label for="fullname" class="block mb-2 font-semibold">Full Name</label>
+                <input type="text" id="fullname" class="w-full mb-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your full name">
+
+                <label for="email" class="block mb-2 font-semibold">Email</label>
+                <input type="email" id="email" class="w-full mb-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your email">
+
+                <label for="loanamount" class="block mb-2 font-semibold">Loan Amount</label>
+                <input type="number" id="loanamount" class="w-full mb-6 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter desired loan amount">
+
+                <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors w-full">Submit</button>
+            </form>
+        </section>
+
+        <!-- Mortgage Calculator Section -->
+        <section id="mortgage-calculator" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-4xl font-bold text-center mb-6 text-gray-700">Mortgage Calculator</h2>
+            <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <label for="loan-amount" class="block font-semibold mb-2">Loan Amount ($)</label>
+                <input type="number" id="loan-amount" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+                <label for="interest-rate" class="block font-semibold mb-2">Interest Rate (%)</label>
+                <input type="number" id="interest-rate" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+                <label for="loan-term" class="block font-semibold mb-2">Loan Term (Years)</label>
+                <input type="number" id="loan-term" class="w-full p-3 mb-6 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+                <button id="calculate-btn" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors w-full shadow-md">Calculate</button>
+
+                <p class="mt-6 font-semibold text-lg text-center">Monthly Payment: <br><span id="monthly-payment" class="text-indigo-600 text-3xl font-bold mt-2">$0.00</span></p>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="page-section container mx-auto px-4 hidden">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-700">Sign Up for Our Newsletter</h2>
+            <form class="max-w-md mx-auto flex flex-col md:flex-row gap-2">
+                <input type="email" placeholder="Your email" class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-2 md:mb-0">
+                <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors shadow-md">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-12 py-10 px-6">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-bold text-lg mb-2">Corinth 10 Homes Limited</h3>
+                <p class="text-gray-400">Trusted property services in Trinidad & Tobago</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-2">Contact</h4>
+                <p class="text-gray-400">123 Main Street, Port of Spain, Trinidad</p>
+                <p class="text-gray-400">Phone: +1 868-123-4567</p>
+                <p class="text-gray-400">Email: info@corinth10homes.com</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-2">Socials</h4>
+                <p class="text-gray-400">Facebook | Instagram | Twitter</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-2">Newsletter</h4>
+                <p class="text-gray-400">Stay updated with our latest properties and news.</p>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 mt-8">
+            &copy; 2025 Corinth 10 Homes Limited. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Agent Info -->
+    <div id="agent-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-[9999] hidden transition-opacity duration-300">
+        <div class="bg-white p-8 rounded-lg shadow-2xl max-w-sm w-full relative">
+            <h3 id="modal-agent-name" class="text-2xl font-bold mb-2 text-center text-gray-800"></h3>
+            <p id="modal-agent-specialty" class="text-indigo-600 font-semibold mb-4 text-center"></p>
+            <p class="text-gray-600 text-center">This would link to the full list of properties for this agent.</p>
+            <button id="close-modal-btn" class="mt-6 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors w-full">Close</button>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for dynamic functionality -->
+    <script>
+        // Get all elements that act as page links
+        const pageLinks = document.querySelectorAll('[data-page-link]');
+        const pageSections = document.querySelectorAll('.page-section');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        const viewAllPropertiesBtn = document.getElementById('view-all-properties-btn');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const monthlyPaymentEl = document.getElementById('monthly-payment');
+        const agentCards = document.querySelectorAll('[data-agent]');
+        const agentModal = document.getElementById('agent-modal');
+        const closeBtn = document.getElementById('close-modal-btn');
+        const paymentForm = document.getElementById('payment-form');
+        const paymentMessageEl = document.getElementById('payment-message');
+
+        /**
+         * Hides all sections and shows the specified one.
+         * @param {string} sectionId - The ID of the section to show (e.g., '#home').
+         */
+        function showSection(sectionId) {
+            pageSections.forEach(sec => {
+                sec.style.display = 'none';
+            });
+            const targetSection = document.querySelector(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+        }
+
+        // Add click event listeners to all page links
+        pageLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('href');
+                showSection(sectionId);
+                // Close all dropdown menus on navigation
+                dropdowns.forEach(d => d.classList.remove('dropdown-active'));
+            });
+        });
+
+        // Event listener for the "View All Properties" button
+        if (viewAllPropertiesBtn) {
+            viewAllPropertiesBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('#all-properties');
+                // Make all commercial properties visible
+                const commercialProperties = document.querySelectorAll('.commercial-property');
+                commercialProperties.forEach(property => {
+                    property.style.display = 'block';
+                });
+            });
+        }
+        
+        // Add event listeners for dropdown menus
+        dropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            if (button) {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevents the document click event from firing immediately
+                    dropdown.classList.toggle('dropdown-active');
+                    // Close other top-level dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('dropdown-active');
+                        }
+                    });
+                });
+            }
+        });
+
+        // Close dropdowns when clicking anywhere on the document
+        document.addEventListener('click', (e) => {
+            // Check if the click is outside any dropdown.
+            let isClickInsideDropdown = false;
+            dropdowns.forEach(d => {
+                if (d.contains(e.target)) {
+                    isClickInsideDropdown = true;
+                }
+            });
+
+            if (!isClickInsideDropdown) {
+                dropdowns.forEach(d => d.classList.remove('dropdown-active'));
+            }
+        });
+
+        // Mortgage calculator functionality
+        if (calculateBtn) {
+            calculateBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+                const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+                const loanTermMonths = parseFloat(document.getElementById('loan-term').value) * 12;
+
+                if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTermMonths) || loanAmount <= 0 || loanTermMonths <= 0) {
+                    monthlyPaymentEl.textContent = "Please enter valid numbers.";
+                    return;
+                }
+
+                let monthlyPayment;
+                if (interestRate === 0) {
+                    monthlyPayment = loanAmount / loanTermMonths;
+                } else {
+                    monthlyPayment = loanAmount * (interestRate * Math.pow(1 + interestRate, loanTermMonths)) / (Math.pow(1 + interestRate, loanTermMonths) - 1);
+                }
+                monthlyPaymentEl.textContent = `$${monthlyPayment.toFixed(2)}`;
+            });
+        }
+
+        // Agent card click event to show modal instead of alert()
+        agentCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const agentName = card.dataset.agent;
+                const agentSpecialty = card.dataset.specialty;
+                document.getElementById('modal-agent-name').textContent = agentName;
+                document.getElementById('modal-agent-specialty').textContent = agentSpecialty;
+                agentModal.classList.remove('hidden');
+                setTimeout(() => agentModal.classList.add('opacity-100'), 10); // Trigger transition
+            });
+        });
+
+        // Close modal button functionality
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                agentModal.classList.remove('opacity-100');
+                setTimeout(() => agentModal.classList.add('hidden'), 300); // Wait for transition to finish
+            });
+        }
+        
+        // Handle online payment form submission
+        if (paymentForm) {
+            paymentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                paymentMessageEl.textContent = 'Processing your payment...';
+                paymentMessageEl.classList.remove('hidden', 'text-green-500', 'text-red-500');
+                paymentMessageEl.classList.add('text-gray-500');
+
+                // Simulate payment success/failure
+                const isSuccess = Math.random() > 0.2; // 80% chance of success
+                
+                setTimeout(() => {
+                    if (isSuccess) {
+                        paymentMessageEl.textContent = 'Payment successful! Thank you.';
+                        paymentMessageEl.classList.remove('text-gray-500', 'text-red-500');
+                        paymentMessageEl.classList.add('text-green-500');
+                        paymentForm.reset();
+                    } else {
+                        paymentMessageEl.textContent = 'Payment failed. Please try again.';
+                        paymentMessageEl.classList.remove('text-gray-500', 'text-green-500');
+                        paymentMessageEl.classList.add('text-red-500');
+                    }
+                }, 2000); // Simulate a 2-second processing time
+            });
+        }
+
+        // Show the initial home section on page load
+        showSection('#home');
+    </script>
+</body>
+</html>
